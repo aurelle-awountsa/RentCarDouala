@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "angular2-flash-messages": "^3.0.1",
+    "primeicons": "^6.0.1"
+  }
+}

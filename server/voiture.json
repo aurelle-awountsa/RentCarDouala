@@ -1,0 +1,57 @@
+[
+	{
+		"marque":"Mercedes E Class",
+		"prix":30000,
+		"places": 5,
+		"portiere":4,
+		"description": "voiture luxieuse et spacieuse avec climatisation et sièges chauffant.",
+		"imageUrl" : [
+				"https://imgx.gridoto.com/crop/0x0:0x0/700x465/photo/2023/04/26/23c0021_008jpg-20230426082100.jpg",
+				"https://www.auto.az/fckfiles/1526036021.jpeg",
+				"https://www.topgear.com/sites/default/files/cars-car/carousel/2021/03/large-37843-mercedes400destate20210015.jpg"
+			    ]
+	},
+
+
+	{
+		"marque":"Land Cruiser",
+		"prix":50000,
+		"places": 7,
+		"portiere":4,
+		"description": "voiture luxieuse et spacieuse avec climatisation; constitué de réducteurs afin se rendre dans des zones peu accéssibles.",
+		"imageUrl" : [
+				"https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/da4b9237bacccdf19c0760cab7aec4a8359010b0/photos/e9Bei_7p6uv2-2.ykVU44PGK.jpg?t=160557538753",
+				"https://www.edmunds.com/assets/m/toyota/land-cruiser/2003/oem/2003_toyota_land-cruiser_4dr-suv_base_fq_oem_1_500.jpg",
+				"https://m.media-amazon.com/images/I/51rtXlprBWL._AC_UF894,1000_QL80_.jpg"
+			    ]
+	},
+
+	{
+
+		"marque":"FiatnFastback",
+		"prix":45000,
+		"places": 5,
+		"portiere":4,
+		"description": "voiture luxieuse et spacieuse avec climatisation et sièges chauffant.",
+		"imageUrl" : [
+				"https://cdn.autopapo.com.br/box/uploads/2022/09/09195111/fiat-fastback-2023-cinza-frente-02-732x488.jpg",
+				"https://imagenes.montevideo.com.uy/imgnoticias/202209/817604.jpg",
+				"https://quatrorodas.abril.com.br/wp-content/uploads/2022/09/Interior-Fiat-Fastback-Limited-1.3-turbo-30.jpg?quality=70&strip=info"
+			    ]
+	},
+
+
+	{
+		"marque":"Carina 3",
+		"prix":20000,
+		"places": 5,
+		"portiere":4,
+		"description": "voiture luxieuse et spacieuse avec climatisation et sièges chauffant.",
+		"imageUrl" : [
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Toyota_Carina_E_nn.JPG/240px-Toyota_Carina_E_nn.JPG",
+				"https://www.autocentrum.pl/OWQwNjguYDYwFThZSA5tInNNbEUGFmIxOBsrRQYHOz4yGytFUhEsM2NEeVhSTXw2YRF6DlBAfW41R3hSSR8_MHMK",
+				"https://www.autoscout24.be/cms-content-assets/7BUHDb8VZaLmSZJ2pboaWY-d49daf7225306e0e467452e27aaa0757-toyota-carina-e-1996-338540-1100.jpg"
+			    ]
+	}
+
+]

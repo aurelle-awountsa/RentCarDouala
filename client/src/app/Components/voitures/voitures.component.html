@@ -1,0 +1,37 @@
+<div class="container">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <h1 *ngIf="voitures && voitures.length > 0">{{title}}</h1>
+
+  <div class="my-2">
+    <div class="row">
+      <div class="col-md-4">
+        <span>Filtrer</span>
+      </div>
+      <div class="col-md-8 form-group">
+          <input type="text" class="form-control">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col-md-4" *ngFor="let voiture of filtreVoiture">
+        <div class="card">
+          <img src="{{voiture.imageUrl}}" [title]="voiture.marque" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{voiture.marque}}</h5>
+            <p class="card-text">{{voiture.description}}</p>
+            <i class="pi pi-user" style="font-size: 1.5rem">{{ voiture.place}}</i><br/> <br/>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2UlEQVR4nO2SMQrCQBBFfyuWaUSIpNZWDyHY2kTQI1iJrQfwAmLnBfQE4hU8gulNJYIGXBmYQIqw7J+0+TCQ4v15u0uANg3SB+ACp2cRzAjB1CLYEoKNRXAkBAeL4EYIruzyIYBcy4mHS5TJtROUJYBX5XSRh40q3BvA2re4o2/pGs4JQLdOMFdATr8CUBBLC+2UN5ddtdkBGOn3jxAIC+3KjqB8CcEHhpR/kQuYp0WQEYKHRXDXcuxhYmWEpXPR8tjDTJQ5WwR74omEpbMgBKlFMCAEwraBKX/O6bw6U5Nd0wAAAABJRU5ErkJggg==">
+            <h5 class="card-text">{{voiture.portiere}}</h5>
+            <h5 class="card-text">{{voiture.prix}} fr cfa</h5>
+            <span class="badge badge-pill badge-primary">Nouveau</span>
+            <button class="btn btn-primary" type="button">Reserver</button>
+
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

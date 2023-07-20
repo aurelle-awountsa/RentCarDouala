@@ -1,0 +1,23 @@
+<h2>Formulaire de réservation de voiture</h2>
+
+<form  (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="pickupDate">Nom</label>
+    <input type="text" id="name"   class="form-control" required>
+    <pre></pre>
+    <label for="pickupDate"> Prénom</label>
+    <input type="text" id="fname"  class="form-control" required>
+    <pre></pre>
+    <label for="pickupDate">Email</label>
+    <input type="email" id="email"  class="form-control" required>
+    <pre></pre>
+
+    <label for="pickupDate">Date de location</label>
+    <input type="date" id="pickupDate" name="pickupDate" class="form-control" required>
+    <pre></pre>
+    <label for="returnDate">Date de retour</label>
+    <input type="date" id="returnDate" name="returnDate"  class="form-control">
+    <pre></pre>
+    <button type="submit">Réserver</button>
+  </div>
+</form>
