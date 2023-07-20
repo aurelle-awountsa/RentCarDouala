@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Voiture = require("../models/voiture")
+const controller_user = require("../controllers/users");
 
 router.get("/getallcars", async(req, res)=>{
 
@@ -15,5 +16,6 @@ router.get("/getallcars", async(req, res)=>{
 
 
 });
+
 
 module.exports = router;

@@ -1,12 +1,12 @@
-const jwt = require("jsonwebtoken");
+//const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
 const User = require("../models/users");
 
 const create_user = (req, res) => {
-
+    console.log(req);
     // vérifier si tous les champs sont remplis
 
-    if (!req.body.lastName  || !req.body.firstname || !req.body.email || !req.body.password) {
+    if (!req.body.lastName  || !req.body.firstName || !req.body.email || !req.body.password) {
         return res
             .status(400)
             .json({
@@ -18,7 +18,7 @@ const create_user = (req, res) => {
 
     // requête vers la db afin de trouver si y a un email deja existant
 
-    User.find({ email: "req.body.email"})
+    User.find({ email: req.body.email})
         .exec()
         .then(user => {
 
@@ -86,4 +86,4 @@ const create_user = (req, res) => {
         })
 };
 
-module.exports = create_user;
+module.exports = {create_user};
