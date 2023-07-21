@@ -9,6 +9,7 @@ import { RentedComponent } from './Components/users/rented/rented.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppRoutingModule} from "./app-routing.module";
+import { SignupComponent } from './Components/signup/signup.component';
 
 
 
@@ -18,6 +19,7 @@ import {AppRoutingModule} from "./app-routing.module";
     VoituresComponent,
     LoginComponent,
     RentedComponent,
+    SignupComponent,
 
   ],
   imports: [

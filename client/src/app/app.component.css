@@ -1,0 +1,11 @@
+@import url("../../src/assets/icomoon/style.css");
+@import url("../../src/assets/css/owl.carousel.min.css");
+@import url("../../src/assets/css/style_navbar.css");
+@import url("../../src/assets/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
+img {
+  margin: 0 auto;
+  display: block;
+  margin-top: 20%;
+}
