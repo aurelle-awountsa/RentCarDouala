@@ -47,7 +47,7 @@ const create_user = (req, res) => {
                     } else {
                         const user = new User({
                             lastName: req.body.lastName,
-                            firstname: req.body.firstname,
+                            firstName: req.body.firstName,
                             email: req.body.email,
                             password: hash
                         });
@@ -65,7 +65,7 @@ const create_user = (req, res) => {
                                         user: {
                                             userId: result._id,
                                             lastName: result.lastName,
-                                            firstname: result.firstname,
+                                            firstName: result.firstName,
                                             userEmail: result.email,
                                             userPassword: result.password
                                         }

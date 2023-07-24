@@ -15,5 +15,9 @@ export class InscriptionService {
 
   inscriptionUser(user: any) {
     return this.http.post('/api/users/signup', user, {headers});
+  };
+
+  validationInscription(user:any) {
+    return !(!user.lastName || !user.lastName || !user.email || !user.password);
   }
 }

@@ -5,12 +5,14 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
+import { AddCarComponent } from './Components/add-car/add-car.component';
 
 const routes: Routes = [
-  {path:'home', component:HomepageComponent},
+  {path:'Accueil', component:HomepageComponent},
   {path:'voitures', component:VoituresComponent},
   {path:'inscription', component:SignupComponent},
   {path:'connexion', component: LoginComponent},
+  {path:'ajoutVoiture', component: AddCarComponent},
   {path:'', redirectTo : "/home", pathMatch: 'full'},
 
 ];

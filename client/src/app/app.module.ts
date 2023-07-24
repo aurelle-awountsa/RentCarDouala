@@ -13,6 +13,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { NavComponent } from './Components/nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { HomepageComponent } from './Components/homepage/homepage.component';
+import { AddCarComponent } from './Components/add-car/add-car.component';
 
 
 @NgModule({
@@ -24,15 +25,16 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
     SignupComponent,
     NavComponent,
     HomepageComponent,
+    AddCarComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    CommonModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    RouterModule,
 
   ],
 
