@@ -1,12 +1,13 @@
 const Car = require("../models/addCar");
 
 const create_car = (req, res) => {
+    
     console.log(req);
 
     // vérifier si tous les champs sont remplis
 
   
-     const car= Car ({
+     const car= new Car ({
         marque: req.body.marque,
         prix: req.body.prix,
         places: req.body.places,
@@ -51,7 +52,6 @@ const create_car = (req, res) => {
                 });
             });
 }
-                
-            
+                    
 
 module.exports = {create_car};
