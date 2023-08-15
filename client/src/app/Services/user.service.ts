@@ -8,16 +8,13 @@ const headers = new HttpHeaders().set('Content-Type', 'application/json; charset
   providedIn: 'root'
 })
 
-export class InscriptionService {
-  http: any;
+export class UserService {
 
-  constructor(private_http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  inscriptionUser(user: any) {
+  registerUser(user: any) {
     return this.http.post('/api/users/signup', user, {headers});
   };
 
-  validationInscription(user:any) {
-    return !(!user.lastName || !user.lastName || !user.email || !user.password);
-  }
+  
 }

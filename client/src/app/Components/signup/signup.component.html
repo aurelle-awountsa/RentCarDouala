@@ -8,8 +8,7 @@
         <div class="signup-content">
           <div class="signup-form">
             <h2 class="form-title">Inscription</h2>
-            <form method="POST" class="register-form" id="register-form" #signupform="ngForm"
-              (ngSubmit)="onSubmit()">
+            <form method="POST" class="register-form" id="register-form" #signupform="ngForm" (ngSubmit)="onSubmit()">
 
 
 
@@ -73,8 +72,8 @@
                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
                 <input #champPassword="ngModel" [class.is-invalid]="champPassword.invalid && champPassword.touched"
                   [class.is-valid]="!(champPassword.invalid && champPassword.untouched)" class="form-control"
-                  type="password" id="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" minlength="6" maxlength="32"
-                  required>
+                  type="password" id="password" [(ngModel)]="password" name="password" placeholder="Mot de passe"
+                  minlength="6" maxlength="32" required>
                 <div *ngIf="champPassword.errors && (champPassword.invalid || champPassword.touched)">
                   <small class="text-danger" *ngIf="champPassword.errors['minlength']">
                     {{champPassword.value}} doit avoir minimum 6 lettres
@@ -84,15 +83,12 @@
                 </div>
               </div>
 
-
               <div class="form-group form-button">
-                <button [disabled]="signupform.form.invalid"
-                class="btn btn-primary btn-rounded
-                  text-monospace font-italic font-weight-bolder"  type="submit"  name="signup"  id="signup">Inscription
-              </button>
+                <button [disabled]="signupform.form.invalid" class="btn btn-primary btn-rounded
+                  text-monospace font-italic font-weight-bolder" type="submit" name="signup" id="signup">Inscription
+                </button>
 
               </div>
-
 
             </form>
           </div>

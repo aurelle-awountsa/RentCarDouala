@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {InscriptionService} from '../../Services/inscription.service'
-import {Router} from "@angular/router";
+import { UserService } from '../../Services/user.service'
+import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -10,27 +10,36 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupComponent {
 
-  lastName:string = "";
+  lastName: string = "";
   firstName: string = "";
   email: string = "";
-  password: string ="";
+  password: string = "";
 
   constructor(
     private router: Router,
-    private inscrption : InscriptionService,
-  ){}
+    private userService: UserService,
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onSubmit(){
+  onSubmit() {
 
     const user = {
-      lastname: this.lastName,
-      firstname: this.firstName,
+      lastName: this.lastName,
+      firstName: this.firstName,
       email: this.email,
       password: this.password
     };
+
     console.log(user);
+
+    this.userService.registerUser(user)
+      .subscribe({
+        next: (data) => {
+          console.log('from backend', data); //ajout d'une notification
+        },
+        error: (err) => console.error('An error occurred', err)
+      });
 
   }
 

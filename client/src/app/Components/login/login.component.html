@@ -1,65 +1,61 @@
 <!-- Sing in  Form -->
 <section class="sign-in">
   <div class="container">
-      <div class="signin-content">
-          <div class="signin-image">
-              <figure><img src="../../../assets/images/signin-image.jpg" alt="sing up image"></figure>
-              <a href="http://localhost:4200/inscription" class="signup-image-link">Créer un compte</a>
-          </div>
-
-          <div class="signin-form">
-              <h2 class="form-title"></h2>
-              <form method="POST" class="register-form" id="login-form" #loginform="ngForm" (ngSubmit)="onSubmit()" >
-                  <!-- email -->
-              <div class="form-group">
-                <label for="email"><i class="zmdi zmdi-email"></i></label>
-
-                <input #champEmail="ngModel" pattern="^[aA-zZ0-9._%+-]+@[a-z0-9.-]+\.[aA-zZ]{2,4}$"
-                  [class.is-invalid]="champEmail.invalid && champEmail.touched"
-                  [class.is-valid]="!(champEmail.invalid && champEmail.untouched)" class="form-control" type="email"
-                  id="inputEmail" [(ngModel)]="email" name="email" placeholder="Email" required>
-                <div *ngIf="champEmail.errors && (champEmail.invalid || champEmail.touched)">
-                  <small id="emailInvalid" class="text-danger" *ngIf="champEmail.errors['pattern']">
-                    {{champEmail.value}} n'est pas valide
-                  </small>
-                  <small id="emailRequired" class="text-danger" *ngIf="champEmail.errors['required']
-                            && champEmail.touched">Champ obligatoire</small>
-                </div>
-              </div>
-
-                 <!-- password -->
-
-              <div class="form-group">
-                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                <input #champPassword="ngModel" [class.is-invalid]="champPassword.invalid && champPassword.touched"
-                  [class.is-valid]="!(champPassword.invalid && champPassword.untouched)" class="form-control"
-                  type="password" id="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" minlength="6" maxlength="32"
-                  required>
-                <div *ngIf="champPassword.errors && (champPassword.invalid || champPassword.touched)">
-                  <small class="text-danger" *ngIf="champPassword.errors['minlength']">
-                    {{champPassword.value}} doit avoir minimum 6 lettres
-                  </small>
-                  <small class="text-danger" *ngIf="champPassword.errors['required']
-                      && champPassword.touched">Champ obligatoire</small>
-                </div>
-              </div>
-
-                  <div class="form-group">
-                      <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                      <label for="remember-me" class="label-agree-term"><span><span></span></span>Se souvenir de moi</label>
-                  </div>
-
-                  <div class="form-group form-button">
-                    <button [disabled]="loginform.form.invalid"
-                    class="btn btn-primary btn-rounded
-                      text-monospace font-italic font-weight-bolder"  type="submit"  name="signup"  id="signup">Connexion
-                  </button>
-
-                  </div>
-                  
-              </form>
-
-          </div>
+    <div class="signin-content">
+      <div class="signin-image">
+        <figure><img src="../../../assets/images/signin-image.jpg" alt="sing up image"></figure>
+        <a href="http://localhost:4200/inscription" class="signup-image-link">Créer un compte</a>
       </div>
+
+      <div class="signin-form">
+        <h2 class="form-title"></h2>
+        <form method="POST" class="register-form" id="login-form" #loginform="ngForm" (ngSubmit)="onSubmit()">
+          <!-- email -->
+          <div class="form-group">
+            <label for="email"><i class="zmdi zmdi-email"></i></label>
+
+            <input #champEmail="ngModel" pattern="^[aA-zZ0-9._%+-]+@[a-z0-9.-]+\.[aA-zZ]{2,4}$"
+              [class.is-invalid]="champEmail.invalid && champEmail.touched"
+              [class.is-valid]="!(champEmail.invalid && champEmail.untouched)" class="form-control" type="email"
+              id="inputEmail" [(ngModel)]="email" name="email" placeholder="Email" required>
+            <div *ngIf="champEmail.errors && (champEmail.invalid || champEmail.touched)">
+              <small id="emailInvalid" class="text-danger" *ngIf="champEmail.errors['pattern']">
+                {{champEmail.value}} n'est pas valide
+              </small>
+              <small id="emailRequired" class="text-danger" *ngIf="champEmail.errors['required']
+                            && champEmail.touched">Champ obligatoire</small>
+            </div>
+          </div>
+
+          <!-- password -->
+
+          <div class="form-group">
+            <label for="password"><i class="zmdi zmdi-lock"></i></label>
+            <input #champPassword="ngModel" [class.is-invalid]="champPassword.invalid && champPassword.touched"
+              [class.is-valid]="!(champPassword.invalid && champPassword.untouched)" class="form-control"
+              type="password" id="password" [(ngModel)]="password" name="password" placeholder="Mot de passe"
+              minlength="6" maxlength="32" required>
+            <div *ngIf="champPassword.errors && (champPassword.invalid || champPassword.touched)">
+              <small class="text-danger" *ngIf="champPassword.errors['minlength']">
+                {{champPassword.value}} doit avoir minimum 6 lettres
+              </small>
+              <small class="text-danger" *ngIf="champPassword.errors['required']
+                      && champPassword.touched">Champ obligatoire</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+            <label for="remember-me" class="label-agree-term"><span><span></span></span>Se souvenir de moi</label>
+          </div>
+
+          <div class="form-group form-button">
+            <button [disabled]="loginform.form.invalid" class="btn btn-primary btn-rounded
+                      text-monospace font-italic font-weight-bolder" type="submit" name="signup" id="signup">Connexion
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
