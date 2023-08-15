@@ -22,27 +22,16 @@ export class SignupComponent {
 
   ngOnInit() {}
 
-  onSubmit(signupform: NgForm){
+  onSubmit(){
 
     const user = {
       lastname: this.lastName,
       firstname: this.firstName,
       email: this.email,
       password: this.password
-     };
+    };
+    console.log(user);
 
-    this.inscrption.inscriptionUser(JSON.stringify(user))
-     .toPromise()
-     .then(() =>{
-        this.router.navigate(['/connexion']).then(nav =>{
-          console.log(nav);
-        }, err => {
-            console.log(err)
-
-        });
-
-    })
-    
   }
 
 }

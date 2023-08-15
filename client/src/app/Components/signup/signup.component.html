@@ -1,47 +1,107 @@
-
 <div class="main_section">
 
-    <div class="main">
+  <div class="main">
 
-        <!-- Sign up form -->
-        <section class="signup">
-            <div class="container">
-                <div class="signup-content">
-                    <div class="signup-form">
-                        <h2 class="form-title">Inscription</h2>
-                        <form method="POST" class="register-form" id="register-form" #signupform="ngForm" (ngSubmit)="onSubmit(signupform)">
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Nom" [(ngModel)]="lastName" />
-                            </div>
-                            <div class="form-group">
-                              <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                              <input type="text" name="name" id="name" placeholder="Prénom" [(ngModel)]="firstName" />
-                          </div>
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Email" [(ngModel)]="email" />
-                            </div>
-                            <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Mot de passe" [(ngModel)]="password" />
-                            </div>
+    <!-- Sign up form -->
+    <section class="signup">
+      <div class="container">
+        <div class="signup-content">
+          <div class="signup-form">
+            <h2 class="form-title">Inscription</h2>
+            <form method="POST" class="register-form" id="register-form" #signupform="ngForm"
+              (ngSubmit)="onSubmit()">
 
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="signup-image">
-                        <figure><img src="../../../assets/images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="http://localhost:4200/connexion" class="signup-image-link">Je suis déjà inscrit</a>
-                    </div>
+
+
+              <!-- firstname -->
+              <div class="form-group">
+                <label for="firstname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input #champFirstname="ngModel" [class.is-invalid]="champFirstname.invalid && champFirstname.touched"
+                  [class.is-valid]="!(champFirstname.invalid && champFirstname.untouched)" class="form-control"
+                  type="text" id="firstname" [(ngModel)]="firstName" name="firstname" minlength="4" maxlength="16"
+                  placeholder="Nom" required>
+
+                <div *ngIf="champFirstname.errors && (champFirstname.invalid || champFirstname.touched)">
+                  <small class="text-danger" *ngIf="champFirstname.errors['minlength']">
+                    {{champFirstname.value}} doit avoir minimum 4 lettres
+                  </small>
+                  <small class="text-danger" *ngIf="champFirstname.errors['required']  && champFirstname.touched">Champ
+                    obligatoire</small>
                 </div>
-            </div>
-        </section>
-    </div>
+              </div>
+
+
+              <!-- lastname -->
+              <div class="form-group">
+                <label for="lastname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input #champLastname="ngModel" [class.is-invalid]="champLastname.invalid && champLastname.touched"
+                  [class.is-valid]="!(champLastname.invalid && champLastname.untouched)" class="form-control"
+                  type="text" id="lastname" [(ngModel)]="lastName" name="lastname" minlength="4" maxlength="16"
+                  placeholder="Prénom" required>
+
+                <div *ngIf="champLastname.errors && (champLastname.invalid || champLastname.touched)">
+                  <small class="text-danger" *ngIf="champLastname.errors['minlength']">
+                    {{champLastname.value}} doit avoir minimum 4 lettres
+                  </small>
+                  <small class="text-danger" *ngIf="champLastname.errors['required']
+                      && champLastname.touched">Champ obligatoire</small>
+                </div>
+              </div>
+
+
+              <!-- email -->
+              <div class="form-group">
+                <label for="email"><i class="zmdi zmdi-email"></i></label>
+
+                <input #champEmail="ngModel" pattern="^[aA-zZ0-9._%+-]+@[a-z0-9.-]+\.[aA-zZ]{2,4}$"
+                  [class.is-invalid]="champEmail.invalid && champEmail.touched"
+                  [class.is-valid]="!(champEmail.invalid && champEmail.untouched)" class="form-control" type="email"
+                  id="inputEmail" [(ngModel)]="email" name="email" placeholder="Email" required>
+                <div *ngIf="champEmail.errors && (champEmail.invalid || champEmail.touched)">
+                  <small id="emailInvalid" class="text-danger" *ngIf="champEmail.errors['pattern']">
+                    {{champEmail.value}} n'est pas valide
+                  </small>
+                  <small id="emailRequired" class="text-danger" *ngIf="champEmail.errors['required']
+                            && champEmail.touched">Champ obligatoire</small>
+                </div>
+              </div>
+
+
+              <!-- password -->
+
+              <div class="form-group">
+                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                <input #champPassword="ngModel" [class.is-invalid]="champPassword.invalid && champPassword.touched"
+                  [class.is-valid]="!(champPassword.invalid && champPassword.untouched)" class="form-control"
+                  type="password" id="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" minlength="6" maxlength="32"
+                  required>
+                <div *ngIf="champPassword.errors && (champPassword.invalid || champPassword.touched)">
+                  <small class="text-danger" *ngIf="champPassword.errors['minlength']">
+                    {{champPassword.value}} doit avoir minimum 6 lettres
+                  </small>
+                  <small class="text-danger" *ngIf="champPassword.errors['required']
+                      && champPassword.touched">Champ obligatoire</small>
+                </div>
+              </div>
+
+
+              <div class="form-group form-button">
+                <button [disabled]="signupform.form.invalid"
+                class="btn btn-primary btn-rounded
+                  text-monospace font-italic font-weight-bolder"  type="submit"  name="signup"  id="signup">Inscription
+              </button>
+
+              </div>
+
+
+            </form>
+          </div>
+          <div class="signup-image">
+            <figure><img src="../../../assets/images/signup-image.jpg" alt="sing up image"></figure>
+            <a href="http://localhost:4200/connexion" class="signup-image-link">Je suis déjà inscrit</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+</div>
