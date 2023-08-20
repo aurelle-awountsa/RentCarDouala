@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
+import { UserService } from '../../Services/user.service'
+
+
 
 
 @Component({
@@ -9,13 +12,34 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   email: string = "";
-  password: string ="";
-  onSubmit(){
+  password: string = "";
+
+  constructor(
+    private router: Router,
+    private userService: UserService,
+  ) { }
+
+  ngOnInit() { }
+
+  onSubmit() {
+
     const user = {
       email: this.email,
       password: this.password
     };
     console.log(user);
+
+    this.userService.loginUser(user)
+      .subscribe({
+        next: async (data) => {
+          console.log('from backend', data); //ajout d'une notification
+          await this.router.navigate(['/voitures']);
+
+        },
+        error: (err) => console.error('An error occurred', err)
+      });
+
+
   }
 
 
