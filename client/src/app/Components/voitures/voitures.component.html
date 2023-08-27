@@ -1,37 +1,62 @@
-<div class="container">
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <h1 *ngIf="voitures && voitures.length > 0">{{title}}</h1>
-
-  <div class="my-2">
-    <div class="row">
-      <div class="col-md-4">
-        <span>Filtrer</span>
-      </div>
-      <div class="col-md-8 form-group">
-          <input type="text" class="form-control">
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-3">
-    <div class="col-md-4" *ngFor="let voiture of filtreVoiture">
-        <div class="card">
-          <img src="{{voiture.imageUrl}}" [title]="voiture.marque" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{voiture.marque}}</h5>
-            <p class="card-text">{{voiture.description}}</p>
-            <i class="pi pi-user" style="font-size: 1.5rem">{{ voiture.place}}</i><br/> <br/>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2UlEQVR4nO2SMQrCQBBFfyuWaUSIpNZWDyHY2kTQI1iJrQfwAmLnBfQE4hU8gulNJYIGXBmYQIqw7J+0+TCQ4v15u0uANg3SB+ACp2cRzAjB1CLYEoKNRXAkBAeL4EYIruzyIYBcy4mHS5TJtROUJYBX5XSRh40q3BvA2re4o2/pGs4JQLdOMFdATr8CUBBLC+2UN5ddtdkBGOn3jxAIC+3KjqB8CcEHhpR/kQuYp0WQEYKHRXDXcuxhYmWEpXPR8tjDTJQ5WwR74omEpbMgBKlFMCAEwraBKX/O6bw6U5Nd0wAAAABJRU5ErkJggg==">
-            <h5 class="card-text">{{voiture.portiere}}</h5>
-            <h5 class="card-text">{{voiture.prix}} fr cfa</h5>
-            <span class="badge badge-pill badge-primary">Nouveau</span>
-            <button class="btn btn-primary" type="button">Reserver</button>
-
+<div class="card">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
+      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+      <ng-template pTemplate="header">
+          <div class="flex flex-column md:flex-row md:justify-content-between">
+              <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="mb-2 md:mb-0"></p-dropdown>
+              <span class="p-input-icon-left mb-2 md:mb-0">
+                  <i class="pi pi-search"></i>
+                  <input type="search" pInputText placeholder="Search by Name">
+              </span>
+              <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
           </div>
-        </div>
-    </div>
-  </div>
+      </ng-template>
+      <ng-template let-product pTemplate="listItem">
+          <div class="col-12">
+              <div class="product-list-item">
+                  <img src ="../../../assets/images/land_cruiser.png"/>
+                  <div class="product-list-detail">
+                      <div class="product-name">{{product.marque}}</div>
 
+                      <div class="product-description"><p-tag styleClass="mr-2"severity="success" icon="pi pi-user-plus p-mr-2" value="{{product.places}}"></p-tag></div>
+
+
+                      <p-rating [ngModel]="5" [readonly]="true" [cancel]="false"></p-rating><br>
+                      <i class="pi pi-tag product-category-icon"></i><span class="product-category">Premium</span>
+                  </div>
+                  <div class="product-list-action">
+                      <span class="product-price">{{product.prix}} fcfa</span>
+                      <p-button icon="pi pi-shopping-cart" label="Ajouter" [routerLink]="['/connexion']"></p-button>
+
+                      <p-tag styleClass="mr-2" severity="success" icon="pi pi-shopping-bag" value="{{product.portiere}}"></p-tag>
+
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+      <ng-template let-product pTemplate="gridItem">
+          <div class="col-12 md:col-4">
+              <div class="product-grid-item card">
+                  <div class="product-grid-item-top">
+                      <div>
+                          <i class="pi pi-tag product-category-icon"></i>
+                          <span class="product-category">Premium</span>
+                      </div>
+                      <p-tag styleClass="mr-2" severity="success" icon="pi pi-shopping-bag" value="{{product.portiere}}"></p-tag>
+
+                  </div>
+                  <div class="product-grid-item-content">
+                      <img img src ="../../../assets/images/land_cruiser.png"/>
+                      <div class="product-name">{{product.marque}}</div>
+                      <div class="product-description"><p-tag styleClass="mr-2" severity="success" icon="pi pi-user-plus p-mr-2" value="{{product.places}}"></p-tag></div>
+                      <p-rating [ngModel]="5" [readonly]="true" [cancel]="false"></p-rating>
+                  </div>
+                  <div class="product-grid-item-bottom">
+                      <span class="product-price">{{product.prix}} fcfa</span>
+                      <p-button icon="pi pi-shopping-cart" [routerLink]="['/connexion']"></p-button>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-dataView>
 </div>

@@ -7,7 +7,7 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
 import { AddCarComponent } from './Components/add-car/add-car.component';
 
 const routes: Routes = [
-  {path:'accueil', component:HomepageComponent},
+  {path:'accueil', component:VoituresComponent},
   {path:'voitures', component:VoituresComponent},
   {path:'inscription', component:SignupComponent},
   {path:'connexion', component: LoginComponent},

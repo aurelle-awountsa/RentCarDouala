@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const path = require('path');
+
 require('dotenv').config();
 
 const app = express();
@@ -20,9 +22,21 @@ app.use(passport.session());
 //Utilisation de la librairie passport
 require('./server/config/passportConfig')(passport);
 
+app.use(express.static(path
+    .join(__dirname, 'server', 'public', 'dist')));
+
+app.get('/', (req, res) => {
+    return res.sendFile(path
+        .join(__dirname + '/server', 'public', 'dist', 'index.html'));
+});
+
 app.use('/api/voitures', routeVoiture)
 app.use('/api/users', routeUsers)
 app.use('/api/cars', routeAddCar)
 
+app.get('*', (req, res) => {
+    return res.sendFile(path
+        .join(__dirname + '/server', 'public', 'dist', 'index.html'));
+});
 const port = process.env.PORT || 5000;
-app.listen(port,() => console.log('Node Server Started'));
+app.listen(port, () => console.log('Node Server Started'));

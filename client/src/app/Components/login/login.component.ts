@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { UserService } from '../../Services/user.service'
+import { NotifService } from 'src/app/Services/notif.service';
 
 
 
@@ -17,6 +18,7 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private userService: UserService,
+    private notifService : NotifService,
   ) { }
 
   ngOnInit() { }
@@ -33,10 +35,16 @@ export class LoginComponent {
       .subscribe({
         next: async (data) => {
           console.log('from backend', data); //ajout d'une notification
+          this.notifService.show('info', 'Bienvenu');
+
           await this.router.navigate(['/voitures']);
 
         },
-        error: (err) => console.error('An error occurred', err)
+        error: (err) => {
+          this.notifService.show('error', 'Mot de passe ou email ne sont pas correctes');
+          console.error('An error occurred', err)
+
+        }
       });
 
 
