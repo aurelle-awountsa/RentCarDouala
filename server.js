@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
+const dbConfig = require('./server/config/db');
 
 require('dotenv').config();
 
@@ -9,7 +10,6 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const dbConfig = require('./server/config/db');
 const routeVoiture = require('./server/routes/routeVoiture');
 const routeUsers = require('./server/routes/users');
 const routeAddCar = require('./server/routes/addCar');

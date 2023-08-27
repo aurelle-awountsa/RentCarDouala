@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var mongoURL = process.env.MONGODB_URI;
+var mongoURL = "mongodb+srv://aurelle:Tchefy-Julia2022@cluster0.kfpprsn.mongodb.net/rent-car-douala";
 mongoose.connect(mongoURL, {useUnifiedTopology:true, useNewUrlParser:true})
 
 var connection = mongoose.connection
